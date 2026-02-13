@@ -25,16 +25,66 @@ export async function getDoc() {
 export async function addRowToSheet(sheetName: string, rowData: any) {
     try {
         const doc = await getDoc();
-        const sheet = doc.sheetsByTitle[sheetName];
+        let sheet = doc.sheetsByTitle[sheetName];
         if (!sheet) {
-            // Create sheet if it doesn't exist? Or throw?
-            // Let's try to create it with headers if possible, or just throw for now.
-            throw new Error(`Sheet "${sheetName}" not found`);
+            console.log(`Sheet "${sheetName}" not found. Creating...`);
+            sheet = await doc.addSheet({ title: sheetName, headerValues: Object.keys(rowData) });
         }
         await sheet.addRow(rowData);
         return { success: true };
     } catch (error: any) {
         console.error(`Google Sheets Error (AddRow - ${sheetName}):`, error);
+        return { success: false, error: error.message };
+    }
+}
+
+export async function addMultipleRowsToSheet(sheetName: string, rowsData: any[]) {
+    try {
+        if (rowsData.length === 0) return { success: true };
+        const doc = await getDoc();
+        let sheet = doc.sheetsByTitle[sheetName];
+
+        // Ensure sheet exists
+        if (!sheet) {
+            const headers = Object.keys(rowsData[0]);
+            sheet = await doc.addSheet({ title: sheetName, headerValues: headers });
+        }
+
+        await sheet.addRows(rowsData);
+        return { success: true };
+    } catch (error: any) {
+        console.error(`Google Sheets Error (AddMultipleRows - ${sheetName}):`, error);
+        return { success: false, error: error.message };
+    }
+}
+
+export async function clearSheet(sheetName: string) {
+    try {
+        const doc = await getDoc();
+        const sheet = doc.sheetsByTitle[sheetName];
+        if (sheet) {
+            await sheet.clear(); // Clears all data
+            // We might want to re-set headers? 
+            // sheet.clear() usually keeps grid properties but clears content.
+            // Documentation says: clears all content and formatting.
+        }
+        return { success: true };
+    } catch (error: any) {
+        return { success: false, error: error.message };
+    }
+}
+
+export async function ensureSheetWithHeaders(sheetName: string, headers: string[]) {
+    try {
+        const doc = await getDoc();
+        let sheet = doc.sheetsByTitle[sheetName];
+        if (!sheet) {
+            await doc.addSheet({ title: sheetName, headerValues: headers });
+        } else {
+            await sheet.setHeaderRow(headers);
+        }
+        return { success: true };
+    } catch (error: any) {
         return { success: false, error: error.message };
     }
 }

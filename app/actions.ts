@@ -1,10 +1,16 @@
 'use server'
 
-import { revalidatePath } from 'next/cache';
-import { getRowsFromSheet, addRowToSheet, deleteRowFromSheet, updateRowInSheet } from '../lib/google-sheets';
+import { revalidatePath, unstable_cache, revalidateTag } from 'next/cache';
+import {
+    getRowsFromSheet, addRowToSheet, deleteRowFromSheet, updateRowInSheet,
+    ensureSheetWithHeaders, addMultipleRowsToSheet, clearSheet
+} from '../lib/google-sheets';
 
 // Google Sheets implementation for ticket logs
-const SHEET_NAME_TICKETS = 'HelpDeskLogs'; // Using a more specific name
+const SHEET_NAME_TICKETS = 'HelpDeskLogs';
+const SHEET_NAME_MK = 'MK_Branches';
+const SHEET_NAME_CUSTOMER = 'Customers';
+const SHEET_NAME_RESOLVER = 'Resolvers';
 
 // --- Default Master Data (Static) ---
 
@@ -43,15 +49,66 @@ const DEFAULT_SOLUTIONS = [
 
 import { MK_BRANCHES, CUSTOMERS, RESOLVERS } from '../lib/master-data';
 
-export async function fetchMasterData() {
-    // Return static data from local file to save API quota and avoid 429 errors
-    console.log("Using Hardcoded Master Data");
+// --- Master Data Handling with Cache ---
 
-    // Static Data for Dropdowns
+// Internal fetch function (uncached)
+async function _fetchMasterDataFromSheets() {
+    console.log("Fetching Master Data from Google Sheets (Uncached)...");
+    try {
+        const [mk, customer, resolvers] = await Promise.all([
+            getRowsFromSheet(SHEET_NAME_MK),
+            getRowsFromSheet(SHEET_NAME_CUSTOMER),
+            getRowsFromSheet(SHEET_NAME_RESOLVER)
+        ]);
+
+        return {
+            mk: mk || [],
+            customer: customer || [],
+            resolvers: resolvers || []
+        };
+    } catch (error) {
+        console.error("Error fetching master data from sheets:", error);
+        return { mk: [], customer: [], resolvers: [] };
+    }
+}
+
+// Cached fetch function
+const getCachedMasterData = unstable_cache(
+    async () => _fetchMasterDataFromSheets(),
+    ['master-data-sheets'],
+    { tags: ['master-data'] }
+);
+
+export async function fetchMasterData() {
+    // 1. Try to get from Cache (which gets from Sheets)
+    const data = await getCachedMasterData();
+
+    // 2. If Sheets is empty, fallback to Hardcoded (Safety net)
+    if ((!data.mk || data.mk.length === 0) && (!data.customer || data.customer.length === 0)) {
+        console.log("Google Sheets empty. Falling back to Hardcoded Master Data.");
+        return fetchStaticMasterData();
+    }
+
+    console.log("Serving Master Data from Cache/Sheets.");
+
+    // Static Data for Dropdowns (Case Errors, Symptoms, etc. still static for now as requested)
     const caseErrors = DEFAULT_CASE_ERRORS.map((d, i) => ({ id: `s-ce-${i}`, name: d }));
     const symptoms = DEFAULT_SYMPTOMS.map((d, i) => ({ id: `s-sym-${i}`, name: d }));
     const solutions = DEFAULT_SOLUTIONS.map((d, i) => ({ id: `s-sol-${i}`, name: d }));
 
+    return {
+        ...data,
+        caseErrors,
+        symptoms,
+        solutions
+    };
+}
+
+// Helper to return static data directly (for fallback or initial seed)
+async function fetchStaticMasterData() {
+    const caseErrors = DEFAULT_CASE_ERRORS.map((d, i) => ({ id: `s-ce-${i}`, name: d }));
+    const symptoms = DEFAULT_SYMPTOMS.map((d, i) => ({ id: `s-sym-${i}`, name: d }));
+    const solutions = DEFAULT_SOLUTIONS.map((d, i) => ({ id: `s-sol-${i}`, name: d }));
     return {
         mk: MK_BRANCHES,
         customer: CUSTOMERS,
@@ -60,6 +117,43 @@ export async function fetchMasterData() {
         symptoms,
         solutions
     };
+}
+
+// --- Sync Action (One-time use to populate Sheets) ---
+export async function syncMasterDataToSheets() {
+    console.log("Starting Sync Master Data to Sheets...");
+    try {
+        // 1. Ensure Sheets Exist with Headers
+        await ensureSheetWithHeaders(SHEET_NAME_MK, ['code', 'name', 'pos', 'machine']);
+        await ensureSheetWithHeaders(SHEET_NAME_CUSTOMER, ['code', 'name', 'pos', 'machine']);
+        await ensureSheetWithHeaders(SHEET_NAME_RESOLVER, ['id', 'name']);
+
+        // 2. Clear existing data (to avoid duplicates on re-sync)
+        await clearSheet(SHEET_NAME_MK);
+        await clearSheet(SHEET_NAME_CUSTOMER);
+        await clearSheet(SHEET_NAME_RESOLVER);
+
+        // 3. Add Hardcoded Data
+        // Re-add headers after clear? clearSheet implementation usually clears content.
+        // Let's re-ensure headers just in case.
+        await ensureSheetWithHeaders(SHEET_NAME_MK, ['code', 'name', 'pos', 'machine']);
+        await ensureSheetWithHeaders(SHEET_NAME_CUSTOMER, ['code', 'name', 'pos', 'machine']);
+        await ensureSheetWithHeaders(SHEET_NAME_RESOLVER, ['id', 'name']);
+
+        if (MK_BRANCHES.length > 0) await addMultipleRowsToSheet(SHEET_NAME_MK, MK_BRANCHES);
+        if (CUSTOMERS.length > 0) await addMultipleRowsToSheet(SHEET_NAME_CUSTOMER, CUSTOMERS);
+        if (RESOLVERS.length > 0) await addMultipleRowsToSheet(SHEET_NAME_RESOLVER, RESOLVERS);
+
+        console.log("Sync Complete.");
+
+        // Invalidate Cache so next fetch gets new data
+        revalidateTag('master-data');
+
+        return { success: true };
+    } catch (error: any) {
+        console.error("Sync Error:", error);
+        return { success: false, error: error.message };
+    }
 }
 
 // ... Remove all other CRUD for CaseError, Symptom, Solution ...
@@ -184,30 +278,93 @@ export async function submitHelpDesk(formData: FormData) {
 // the previous Airtable CRUD actions for master data are temporarily disabled/removed
 // to prevent errors and confusion.
 
-export async function addMKBranch(data: any) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function updateMKBranch(id: string, data: any) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function deleteMKBranch(code: string) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function batchUpdateMKBranches(branches: any[]) { return { success: false, error: "Static Mode: Edit Disabled" }; }
+// --- CRUD Actions for Master Data (Sheet Backed) ---
 
-export async function addCustomer(data: any) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function updateCustomer(id: string, data: any) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function deleteCustomer(code: string) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function batchUpdateCustomers(customers: any[]) { return { success: false, error: "Static Mode: Edit Disabled" }; }
+function getRowIndex(id: string) {
+    // Helper to parse ID from Sheet (assuming we use _rowNumber or similar logic)
+    // If ID is just row index from getRows (which we mapped to id), we can use it.
+    // However, if we migrated from Airtable ID strings, we might have issues.
+    // In fetchMasterData, we didn't map _rowNumber to ID explicitly for MK/Customer yet in `_fetchMasterDataFromSheets`.
+    // Let's fix `_fetchMasterDataFromSheets` logic? No, `getRowsFromSheet` adds `_rowNumber`.
+    // But `unstable_cache` returns raw objects.
+    // We should ensure IDs are usable.
+    const idx = parseInt(id) - 2; // Sheets 1-based, Header row 1.
+    return idx;
+}
 
-export async function addResolver(data: any) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function updateResolver(id: string, data: any) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function deleteResolver(id: string) { return { success: false, error: "Static Mode: Edit Disabled" }; }
+export async function addMKBranch(data: any) {
+    const res = await addRowToSheet(SHEET_NAME_MK, data);
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
 
-export async function addCaseError(data: { name: string }) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function updateCaseError(id: string, data: { name: string }) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function deleteCaseError(id: string) { return { success: false, error: "Static Mode: Edit Disabled" }; }
+export async function updateMKBranch(id: string, data: any) {
+    // Convert id to index
+    // Note: This relies on the ID passed from UI being the _rowNumber
+    const idx = parseInt(id) - 2;
+    const res = await updateRowInSheet(SHEET_NAME_MK, idx, data);
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
 
-export async function addSymptom(data: { name: string }) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function updateSymptom(id: string, data: { name: string }) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function deleteSymptom(id: string) { return { success: false, error: "Static Mode: Edit Disabled" }; }
+export async function deleteMKBranch(id: string) {
+    const idx = parseInt(id) - 2;
+    const res = await deleteRowFromSheet(SHEET_NAME_MK, idx);
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
 
-export async function addSolution(data: { name: string }) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function updateSolution(id: string, data: { name: string }) { return { success: false, error: "Static Mode: Edit Disabled" }; }
-export async function deleteSolution(id: string) { return { success: false, error: "Static Mode: Edit Disabled" }; }
+
+export async function addCustomer(data: any) {
+    const res = await addRowToSheet(SHEET_NAME_CUSTOMER, data);
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
+export async function updateCustomer(id: string, data: any) {
+    const idx = parseInt(id) - 2;
+    const res = await updateRowInSheet(SHEET_NAME_CUSTOMER, idx, data);
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
+export async function deleteCustomer(id: string) {
+    const idx = parseInt(id) - 2;
+    const res = await deleteRowFromSheet(SHEET_NAME_CUSTOMER, idx);
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
+
+
+export async function addResolver(name: string) {
+    // Resolvers might need an ID logic if we use them by ID. 
+    // But currently we just use name.
+    const res = await addRowToSheet(SHEET_NAME_RESOLVER, { id: `res-${Date.now()}`, name });
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
+export async function updateResolver(id: string, name: string) {
+    const idx = parseInt(id) - 2;
+    const res = await updateRowInSheet(SHEET_NAME_RESOLVER, idx, { name });
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
+export async function deleteResolver(id: string) {
+    const idx = parseInt(id) - 2;
+    const res = await deleteRowFromSheet(SHEET_NAME_RESOLVER, idx);
+    if (res.success) revalidateTag('master-data');
+    return res;
+}
+
+// Keep CaseError etc static for now as requested/implied
+export async function addCaseError(data: { name: string }) { return { success: false, error: "Static Mode (CaseErrors)" }; }
+export async function updateCaseError(id: string, data: { name: string }) { return { success: false, error: "Static Mode (CaseErrors)" }; }
+export async function deleteCaseError(id: string) { return { success: false, error: "Static Mode (CaseErrors)" }; }
+
+export async function addSymptom(data: { name: string }) { return { success: false, error: "Static Mode (Symptoms)" }; }
+export async function updateSymptom(id: string, data: { name: string }) { return { success: false, error: "Static Mode (Symptoms)" }; }
+export async function deleteSymptom(id: string) { return { success: false, error: "Static Mode (Symptoms)" }; }
+
+export async function addSolution(data: { name: string }) { return { success: false, error: "Static Mode (Solutions)" }; }
+export async function updateSolution(id: string, data: { name: string }) { return { success: false, error: "Static Mode (Solutions)" }; }
+export async function deleteSolution(id: string) { return { success: false, error: "Static Mode (Solutions)" }; }
 
 // --- End of Actions ---

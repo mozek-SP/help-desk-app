@@ -278,8 +278,34 @@ export default function AdminPage() {
                         <Shield className="text-primary" /> Admin Management
                     </h1>
                 </div>
-                <div className="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold">
-                    Master Data Editor
+                <div className="d-flex gap-2">
+                    <button
+                        onClick={async () => {
+                            if (confirm("คุณต้องการ Reset ข้อมูลใน Google Sheets ให้เป็นค่าเริ่มต้นจากระบบใช่หรือไม่? (ข้อมูลเก่าใน Sheet จะถูกล้าง)")) {
+                                setLoading(true);
+                                try {
+                                    const { syncMasterDataToSheets } = await import('../actions');
+                                    const res = await syncMasterDataToSheets();
+                                    if (res.success) {
+                                        alert("Sync ข้อมูลสำเร็จ!");
+                                        await loadData();
+                                    } else {
+                                        alert("Sync Failed: " + res.error);
+                                    }
+                                } catch (e) {
+                                    alert("Error: " + e);
+                                } finally {
+                                    setLoading(false);
+                                }
+                            }
+                        }}
+                        className="btn btn-outline-warning btn-sm fw-bold"
+                    >
+                        <Sparkles size={16} className="me-1" /> Reset/Sync Master Data
+                    </button>
+                    <div className="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold d-flex align-items-center">
+                        Master Data Editor
+                    </div>
                 </div>
             </div>
 
