@@ -3,10 +3,18 @@ import Airtable from 'airtable';
 
 // Configure Airtable
 const getBase = () => {
-    if (!process.env.AIRTABLE_PAT || !process.env.AIRTABLE_BASE_ID) {
-        throw new Error("Missing Airtable Credentials");
+    const baseId = process.env.AIRTABLE_BASE_ID;
+    const pat = process.env.AIRTABLE_PAT;
+
+    if (!baseId || !pat) {
+        console.error("❌ Airtable Config Missing:", { baseId: !!baseId, pat: !!pat });
+        throw new Error("Airtable Configuration Missing");
     }
-    return new Airtable({ apiKey: process.env.AIRTABLE_PAT }).base(process.env.AIRTABLE_BASE_ID);
+
+    // Log connection attempt (safely)
+    console.log(`🔌 Connecting to Airtable Base: ${baseId}, PAT ending in ...${pat.slice(-4)}`);
+
+    return new Airtable({ apiKey: pat }).base(baseId);
 };
 
 // Map Airtable record to App Object
