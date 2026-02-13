@@ -10,8 +10,8 @@ import {
 import Link from 'next/link'
 import {
     fetchMasterData,
-    addMKBranch, deleteMKBranch, updateMKBranch, importMKData,
-    addCustomer, deleteCustomer, updateCustomer, importCustomerData,
+    addMKBranch, deleteMKBranch, updateMKBranch,
+    addCustomer, deleteCustomer, updateCustomer,
     addResolver, deleteResolver, updateResolver
 } from '../actions'
 
