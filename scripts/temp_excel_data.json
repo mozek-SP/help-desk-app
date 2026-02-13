@@ -1,0 +1,1742 @@
+{
+  "Branches": [
+    {
+      "name": "MK แม็กแวลู่ สุขาภิบาล 1 (สาขา นวมินทร์)",
+      "code": "M015",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล บางนาซิตี้",
+      "code": "M021",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เอกมัย",
+      "code": "M022",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล ลาดพร้าว 2",
+      "code": "M025",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK ฟิวเจอร์พาร์ค รังสิต ชั้นใต้ดิน",
+      "code": "M029",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล มารีน่า พัทยา",
+      "code": "M034",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส พัทยาใต้",
+      "code": "M043",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน ศรีราชา",
+      "code": "M057",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล พระราม 3",
+      "code": "M063",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน ราชบุรี",
+      "code": "M064",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน จันทบุรี",
+      "code": "M066",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี เพชรบุรี",
+      "code": "M067",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เมเจอร์ รัชโยธิน",
+      "code": "M075",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK อยุธยาซิตี้พาร์ค",
+      "code": "M079",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK มาบุญคลอง(MBK)",
+      "code": "M080",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK พาราไดซ์พาร์ค(เสรีเซ็นเตอร์)",
+      "code": "M081",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล แอร์พอร์ต เชียงใหม่",
+      "code": "M082",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส เอกมัยฯ(เลียบทางด่วนรามอินทรา)",
+      "code": "M085",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส พระราม 4",
+      "code": "M086",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส อ่อนนุช(สุขุมวิท 50)",
+      "code": "M087",
+      "pos": "12DATA",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส หลักสี่",
+      "code": "M088",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี พระราม 4",
+      "code": "M089",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เดอะมอลล์ โคราช",
+      "code": "M092",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัลเวิลด์",
+      "code": "M099",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส พระราม 3",
+      "code": "M106",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส อุดรธานี 1",
+      "code": "M114",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส ประชาชื่น",
+      "code": "M115",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส บางนา",
+      "code": "M117",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี สุขสวัสดิ์",
+      "code": "M118",
+      "pos": "12DATA",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส พัทยาเหนือ",
+      "code": "M120",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี แจ้งวัฒนะ 2",
+      "code": "M125",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส บางปะกอก",
+      "code": "M134",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส รังสิต",
+      "code": "M135",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี ติวานนท์",
+      "code": "M140",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล พระราม 2",
+      "code": "M144",
+      "pos": "12DATA",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี พัทยาใต้",
+      "code": "M149",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส นครปฐม",
+      "code": "M151",
+      "pos": "12DATA",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี นครสวรรค์",
+      "code": "M152",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส จันทบุรี",
+      "code": "M154",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี ลาดพร้าว 2",
+      "code": "M157",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี สะพานควาย",
+      "code": "M161",
+      "pos": "12DATA",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี พัทยากลาง",
+      "code": "M163",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี เชียงใหม่(ดอนจั่น)",
+      "code": "M170",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี เพชรเกษม 2",
+      "code": "M173",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส พระราม 1",
+      "code": "M177",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส รังสิต-นครนายก คลอง 4",
+      "code": "M184",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส ปทุมธานี",
+      "code": "M187",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี สุขาภิบาล 3",
+      "code": "M192",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โฮมโปร ราชพฤกษ์",
+      "code": "M196",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK ไอที สแควร์",
+      "code": "M197",
+      "pos": "12DATA",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นจูรี่ เดอะมูฟวี่พลาซ่า อนุสาวรีย์ฯ",
+      "code": "M198",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK สยามพารากอน",
+      "code": "M200",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โฮมโปร หัวหิน (มาร์เก็ต วิลเลจ)",
+      "code": "M208",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK ฟิวเจอร์พาร์ค รังสิต ชั้น G",
+      "code": "M215",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส นวนคร",
+      "code": "M226",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี หางดง 1 เชียงใหม่",
+      "code": "M244",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โฮมโปร ระยอง",
+      "code": "M246",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส ศาลายา",
+      "code": "M250",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK จัตุรัสจามจุรี",
+      "code": "M268",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส บ้านโป่ง ราชบุรี",
+      "code": "M271",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เดอะพาซิโอ สาขาลาดกระบัง",
+      "code": "M276",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล แจ้งวัฒนะ",
+      "code": "M282",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส รัตนาธิเบศร์",
+      "code": "M283",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส ศรีนครินทร์",
+      "code": "M285",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK ฮาร์เบอร์ มอลล์ แหลมฉบัง",
+      "code": "M289",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล พัทยา บีช",
+      "code": "M290",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส ลำลูกกาคลอง 2",
+      "code": "M299",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัลชลบุรี",
+      "code": "M300",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล ขอนแก่น",
+      "code": "M307",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส ภูเก็ต",
+      "code": "M314",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี ฟู้ดเพลส สุขาภิบาล 5",
+      "code": "M315",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี ราชดำริ",
+      "code": "M328",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล เชียงราย",
+      "code": "M330",
+      "pos": "12DATA",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส ประชาอุทิศ",
+      "code": "M338",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เทอร์มินอล 21 อโศก",
+      "code": "M342",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล พิษณุโลก",
+      "code": "M344",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส ขอนแก่น 2",
+      "code": "M346",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล พระราม 9",
+      "code": "M347",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน สุพรรณบุรี",
+      "code": "M358",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล อุดรธานี",
+      "code": "M360",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK ซีคอนสแควร์ ชั้น 4 (ศรีนครินทร์)",
+      "code": "M361",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เมกา บางนา",
+      "code": "M364",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK อิมพีเรียลเวิลด์ สำโรง",
+      "code": "M368",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK พอร์โต ชิโน่ มหาชัย",
+      "code": "M371",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK ซีคอน บางแค",
+      "code": "M378",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK รพ.ศิริราช",
+      "code": "M380",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส นครอินทร์",
+      "code": "M382",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล สุราษฎร์ธานี",
+      "code": "M386",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK สีลมคอมเพล็กซ์",
+      "code": "M388",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล ลำปาง",
+      "code": "M391",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส พิษณุโลก 2(ท่าทอง)",
+      "code": "M396",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน ไลฟ์สไตล์ กาญจนบุรี",
+      "code": "M400",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล อุบลราชธานี",
+      "code": "M404",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส แกลง ระยอง",
+      "code": "M415",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล เชียงใหม่",
+      "code": "M419",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน สระบุรี",
+      "code": "M420",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส ชัยนาท",
+      "code": "M424",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน บางรัก",
+      "code": "M425",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล เฟสติวัล หาดใหญ่",
+      "code": "M427",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน ไลฟ์สไตล์ สุรินทร์",
+      "code": "M428",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี ขอนแก่น 1",
+      "code": "M429",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี พิษณุโลก",
+      "code": "M432",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส นครนายก",
+      "code": "M444",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK สยามสแควร์วัน",
+      "code": "M446",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล ศาลายา",
+      "code": "M450",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส บางใหญ่",
+      "code": "M451",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน ฉะเชิงเทรา",
+      "code": "M453",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน ร้อยเอ็ด",
+      "code": "M454",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน สมุทรปราการ",
+      "code": "M456",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน ปราจีนบุรี",
+      "code": "M460",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส คลองหลวง",
+      "code": "M461",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เดอะพาซิโอ พาร์ค กาญจนาภิเษก",
+      "code": "M463",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK มาร์เก็ต วิลเลจ สุวรรณภูมิ",
+      "code": "M464",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เดอะพรอมานาด",
+      "code": "M465",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK ลอนดอน สตรีท",
+      "code": "M466",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล ระยอง",
+      "code": "M468",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล เวสต์เกต บางใหญ่ ชั้น 3",
+      "code": "M472",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน ศรีสมาน",
+      "code": "M474",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล อีสวิล",
+      "code": "M475",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK Zpell รังสิต",
+      "code": "M476",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี ลพบุรี",
+      "code": "M481",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี บางพลี",
+      "code": "M482",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี บางใหญ่",
+      "code": "M491",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน ลพบุรี",
+      "code": "M492",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เทอร์มินอล 21 โคราช",
+      "code": "M493",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เอ็มควอเทียร์",
+      "code": "M494",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน เพชรบุรี",
+      "code": "M496",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส ปากช่อง",
+      "code": "M499",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล นครราชสีมา",
+      "code": "M500",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล มหาชัย",
+      "code": "M508",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เมกา บางนา เฟส 2",
+      "code": "M509",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี นครปฐม",
+      "code": "M514",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK แฟชั่น ไอส์แลนด์",
+      "code": "M516",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี สัตหีบ",
+      "code": "M517",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน ชลบุรี",
+      "code": "M521",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โลตัส บางกรวยไทรน้อย",
+      "code": "M524",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เทอร์มินอล 21 พัทยา",
+      "code": "M526",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK ไอคอน สยาม",
+      "code": "M528",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล เวสต์เกต บางใหญ่ ชั้น 2",
+      "code": "M542",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK Central Village Outlet",
+      "code": "M546",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK สามย่านมิตรทาวน์",
+      "code": "M548",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน ลาดกระบัง",
+      "code": "M554",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เดอะมอลล์ งามวงศ์วาน",
+      "code": "M555",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK โรบินสัน บ่อวิน",
+      "code": "M557",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล ศรีราชา",
+      "code": "M560",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล อยุธยา",
+      "code": "M562",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เดอะมอลล์ ท่าพระ",
+      "code": "M565",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK บิ๊กซี วงศ์สว่าง",
+      "code": "M567",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน บ้านฉาง",
+      "code": "M569",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล จันทบุรี",
+      "code": "M570",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน ถลาง",
+      "code": "M572",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เทอร์มินอล 21 พระราม 3",
+      "code": "M573",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โรบินสัน ราชพฤกษ์",
+      "code": "M574",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เดอะมอลล์ บางกะปิ",
+      "code": "M583",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เดอะมอลล์ บางแค",
+      "code": "M584",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK ซีคอนสแควร์ ชั้น G (ศรีนครินทร์)",
+      "code": "M586",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล เวสต์วิลล์",
+      "code": "M587",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK บิ๊กซี รัชดาภิเษก",
+      "code": "M590",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล นครปฐม",
+      "code": "M592",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK เซ็นทรัล ปิ่นเกล้า",
+      "code": "M601",
+      "pos": "CE",
+      "machine": "CI-10"
+    },
+    {
+      "name": "MK เซ็นทรัล นครศรีธรรมราช",
+      "code": "M485",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "MK โลตัส แม่สาย",
+      "code": "M195",
+      "pos": "12DATA",
+      "machine": "CI-5"
+    },
+    {
+      "name": "YAYOI Central Eastville",
+      "code": "Y146",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "HIKINIKU TO COME เซ็นทรัลเวิลด์",
+      "code": "H201",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "HIKINIKU TO COME เซ็นทรัล พาร์ค แบงคอก",
+      "code": "H202",
+      "pos": "CE",
+      "machine": "CI-5"
+    },
+    {
+      "name": "HIKINIKU TO COME สยามพารากอน",
+      "code": "H203",
+      "pos": "CE",
+      "machine": "CI-5"
+    }
+  ],
+  "Customers": [
+    {
+      "name": "420 Cafe x Booze21",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Xpro",
+      "machine": "CI-5"
+    },
+    {
+      "name": "กรทองอะไหล่",
+      "code": "ลพบุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "กิจกมลวัสดุก่อสร้าง",
+      "code": "บุรีรัมย์",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คลังโฟรเซ่น",
+      "code": "อุดรธานี",
+      "pos": "-",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คลินิกทันตกรรมสานัสทันตแพทย์ (สาขาพรานนก)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10 B"
+    },
+    {
+      "name": "คลินิกทันตกรรมสานัสทันตแพทย์ (สาขาวรรัตน์)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10 B"
+    },
+    {
+      "name": "คลินิกทันตกรรมสานัสทันตแพทย์. (สาขาสำเหร่)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10 B"
+    },
+    {
+      "name": "คุณกุลธิดา จู่คำศรี (AnyWear Studio ประตูน้ำ)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Xpro",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คุณณัฐวรรณ ศุภธีรวงศ์ (ลุงหนึ่งเกี๊ยวยักษ์)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ร้านถูกดี สาขารุ่งเรือง (ถูกดี มีมาตรฐาน อารัญ พาณิชย์)",
+      "code": "จันทบุรี",
+      "pos": "CCWeb",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คุณทรงกลด ฉวีวานิชยกุล (รัตนภัณฑ์สำเพ็ง)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คุณนันทพร ปิยะศุภสิทธิ์ (เซี้ย เย็นตาโฟ เอ็กเพรซ Express)",
+      "code": "สมุทรปราการ",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คุณนันทพร ปิยะศุภสิทธิ์ (ร้านเซี๊ย เย็นตาโฟ 90/1)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คุณบงกชวัท วาสนาพันธพงศ์ (ไอยรา มาร์เก็ต)",
+      "code": "เพชรบูรณ์",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คุณรินรวี ป่วงคำ (ร้านอยุธยาค้าไข่ ตลาดไอยรา)",
+      "code": "ปทุมธานี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คุณรินรวี ป่วงคำ (ร้านอยุธยาค้าไข่ ตลาดไอยรา)",
+      "code": "ปทุมธานี",
+      "pos": "Control Center",
+      "machine": "CI-5"
+    },
+    {
+      "name": "ร้านถูกดี สาขารุ่งโรจน์ ถูกดี มีมาตรฐาน ร้าน อารัญ พาณิชย์ (สาขา 2 บึงชนัง)",
+      "code": "จันทบุรี",
+      "pos": "CCWeb",
+      "machine": "CI-10"
+    },
+    {
+      "name": "คุณสายชล โล่หิรัญญานนท์ (ร้านเฮียวัฒน์เจ๊ชลขายส่ง 20บาท)",
+      "code": "ชลบุรี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ฉัตรหลวงคลินิก",
+      "code": "ปทุมธานี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ด็อกเตอร์ ฟ ฟันคลินิกทันตกรรม",
+      "code": "บึงกาฬ",
+      "pos": "Control Center",
+      "machine": "CI-10 B"
+    },
+    {
+      "name": "นายศกร ทัดรอด (Summer Me)",
+      "code": "เพชรบุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท กุลทรัพย์999 จำกัด สำนักงานใหญ่ (Scene Bangkok)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท กุลทรัพย์999 จำกัด สำนักงานใหญ่ (Scene Bangkok)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-5"
+    },
+    {
+      "name": "เกษรา เบเกอรี่",
+      "code": "สิงห์บุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "แก้ว ดิสทริบิวชัน เซ็นเตอร์",
+      "code": "ปทุมธานี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "เค.พี.เจ มอเตอร์",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "เคลฟเวอร์ กู๊ดส์",
+      "code": "นครสวรรค์",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "เค.อาร์.ออโตโมทีฟ",
+      "code": "ปทุมธานี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท จิณณ์โสภา อินเตอร์เนชั่นแนล จำกัด (BB Food Retail Corp)",
+      "code": "นราธิวาส",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "จินดาการเกษตร",
+      "code": "จันทบุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "จุฑารัตน์ จันทบุรี",
+      "code": "จันทบุรี",
+      "pos": "Control Center",
+      "machine": "CI-5"
+    },
+    {
+      "name": "ชลบุรี มหาชัย ซีฟู้ด",
+      "code": "ชลบุรี",
+      "pos": "Control Center",
+      "machine": "CI-50"
+    },
+    {
+      "name": "ชลบุรีรัตนยนต์ 1999",
+      "code": "ชลบุรี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ชุมทางค้าข้าว",
+      "code": "นครศรีธรรมราช",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ซี.พี.เอส. โฮมเซ็นเตอร์ จำกัด CPS Homecenter",
+      "code": "เชียงใหม่",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท ซุ่งหลีโลหะกิจ จำกัด สาขาเขาไร่ยา",
+      "code": "จันทบุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท ซุ่งหลีโลหะกิจ จำกัด สาขาหนองบัว",
+      "code": "จันทบุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท ซูชิ ทู โก จำกัด (สาขาเมืองทองธานี)",
+      "code": "นนทบุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "เซ็นทรัลเบเกอรี่",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Pos standard",
+      "machine": "CI-5"
+    },
+    {
+      "name": "บริษัท ดับเบิ้ลดี เทรดดิ้ง จำกัด (ร้านวันดี สาขาท่าเรือ)",
+      "code": "พระนครศรีอยุธยา",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท ดับเบิ้ลดี เทรดดิ้ง จำกัด (ร้านวันดี สาขาบางปะหัน)",
+      "code": "พระนครศรีอยุธยา",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ดีดี คิดส์ จำกัด DD Kids Clinic ศรีราชา",
+      "code": "ชลบุรี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ทองวิเศษเคมีเกษตร",
+      "code": "อุบลราชธานี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ทุ่งหลวงเชื้อเพลิง",
+      "code": "ภูเก็ต",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ทุ่งหลวงเชื้อเพลิง (KIOSK)",
+      "code": "ภูเก็ต",
+      "pos": "Xpro",
+      "machine": "CI-10X"
+    },
+    {
+      "name": "โทฟู สกินแคร์ (ร้านขายยา)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "โทฟู สกินแคร์ (CASHIER 1)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "โทฟู สกินแคร์ (CASHIER 2)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "โทฟู สกินแคร์ (CASHIER 3)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บุญพงษ์ ดีสทรีบิวชั่น",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-50"
+    },
+    {
+      "name": "บริษัท บุญยาง2012 จำกัด (YCN บุญยาง2012 ชลบุรี)",
+      "code": "ชลบุรี",
+      "pos": "Xpro",
+      "machine": "CI-5"
+    },
+    {
+      "name": "บริษัท บุญยาง คอร์เปอเรชั่น จำกัด",
+      "code": "ชลบุรี",
+      "pos": "Xpro",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท บุญยาง จำกัด (ค็อกพิท บุญยาง ชลบุรี)",
+      "code": "ชลบุรี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท ป.ปนัฐดา อินเตอร์มารีนฟู๊ด จำกัด  (ห้องเย็นPND ค้าส่งอาหารทะเลแช่แข็ง(ตลาดไท)",
+      "code": "ปทุมธานี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ปาร์ค มอเตอร์",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท พฤกษา เอ็นเนอยี จำกัด (Shell ระยอง) (KIOSK)",
+      "code": "ระยอง",
+      "pos": "Control Center",
+      "machine": "CI-50"
+    },
+    {
+      "name": "บริษัท พาวเวอร์ สโตร์ โปรดักส์ จำกัด ซุ่งหลี สาขาตะเคียนคู่",
+      "code": "จันทบุรี",
+      "pos": "Control Center",
+      "machine": "CI-5"
+    },
+    {
+      "name": "บริษัท พี อาร์ จี ฟู้ด ไอส์แลนด์ จำกัด (MBK) (KIOSK)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท พี.เอ.เอ็น.ออยล์ จำกัด (Bangchak สมุทรสงคราม) (KIOSK)",
+      "code": "สมุทรสงคราม",
+      "pos": "Control Center",
+      "machine": "CI-50"
+    },
+    {
+      "name": "บริษัท ฟรุตแพชชั่น จำกัด (ร้านบุญ​มงคล​ผลไม้​)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ฟ้าปราณี รับเบอร์ จำกัด สำนักงานใหญ่",
+      "code": "จันทบุรี",
+      "pos": "CCWeb",
+      "machine": "CI-50"
+    },
+    {
+      "name": "ฟ้าปราณี รับเบอร์ จำกัด สาขากระบกคู่",
+      "code": "ฉะเชิงเทรา",
+      "pos": "CCWeb",
+      "machine": "CI-50"
+    },
+    {
+      "name": "ฟ้าปราณี รับเบอร์ จำกัด สาขาเขากระดาษ",
+      "code": "ฉะเชิงเทรา",
+      "pos": "CCWeb",
+      "machine": "CI-50"
+    },
+    {
+      "name": "ฟ้าปราณี รับเบอร์ จำกัด สาขาสนามชัยเขต",
+      "code": "ฉะเชิงเทรา",
+      "pos": "CCWeb",
+      "machine": "CI-50"
+    },
+    {
+      "name": "ภูเก็ต โชคโยธาวัสดุภัณฑ์",
+      "code": "ภูเก็ต",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท มาลีจิว จำกัด",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Xpro",
+      "machine": "CI-50"
+    },
+    {
+      "name": "บิ๊กซ้ง ซุปเปอร์สโตร์",
+      "code": "สมุทรสาคร",
+      "pos": "Control Center",
+      "machine": "CI-50"
+    },
+    {
+      "name": "มินดารา กรุ๊ป สาขา 1",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "มินดารา กรุ๊ป สาขา 2",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "มินดารา กรุ๊ป (Nailfie Alway จามจุรี)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-5"
+    },
+    {
+      "name": "ร้านข้าวแกงตำรับแม่ล้วน (บริษัท แม่ล้วน จำกัด)",
+      "code": "เพชรบุรี",
+      "pos": "Xpro",
+      "machine": "CI-10X"
+    },
+    {
+      "name": "โมดึม",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Xpro",
+      "machine": "CI-5"
+    },
+    {
+      "name": "ยายทองฟู้ดส์101",
+      "code": "ปทุมธานี",
+      "pos": "Xpro",
+      "machine": "CI-50"
+    },
+    {
+      "name": "บริษัท รัตนากร มารีนฟูดส์ จำกัด (ห้องเย็นรัตนากร ตลาดทะเลไทย)",
+      "code": "สมุทรสาคร",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "รามบุตรีรุ่งเรือง",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "รามบุตรีรุ่งเรือง",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Pos standard",
+      "machine": "CI-50"
+    },
+    {
+      "name": "เรือด่วนเจ้าพระยา",
+      "code": "นนทบุรี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท วัฒนศิลป์ รีเทลลิ่ง จำกัด (บัวรองมาร์ท)",
+      "code": "อุดรธานี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "วาวา2559",
+      "code": "อุดรธานี",
+      "pos": "Control Center",
+      "machine": "CI-50"
+    },
+    {
+      "name": "วาวา2559",
+      "code": "อุดรธานี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "เวิลด์ มาร์เก็ต เพลส",
+      "code": "กรุงเทพมหานคร",
+      "pos": "CCWeb",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ศรีสยามกลการ จำกัด สนักงานใหญ่",
+      "code": "ฉะเชิงเทรา",
+      "pos": "CCWeb",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ศรีสยามกลการ จำกัด สาขา 00004",
+      "code": "ฉะเชิงเทรา",
+      "pos": "CCWeb",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ศิลา น้ำแข็งหลอด",
+      "code": "บุรีรัมย์",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "สมบูรณ์โชคกิจเกษตร",
+      "code": "เพชรบุรี",
+      "pos": "Xpro",
+      "machine": "CI-10"
+    },
+    {
+      "name": "หาดใหญ่ชัยการพาณิชย์",
+      "code": "สงขลา",
+      "pos": "CCWeb",
+      "machine": "CI-10"
+    },
+    {
+      "name": "เอส.เอ.เค. อะไหล่",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท อินเตอร์มาร์ท (ไทยแลนด์) จำกัด (Dear Tummy) อยู่โกดัง",
+      "code": "กรุงเทพมหานคร",
+      "pos": "API",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท อินเตอร์มาร์ท (ไทยแลนด์) จำกัด (Dear Tummy) อยู่ Icon Siam",
+      "code": "กรุงเทพมหานคร",
+      "pos": "API",
+      "machine": "CI-10"
+    },
+    {
+      "name": "แอล.เค.เอส.มอเตอร์",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท โอ้มายกุ๊ก จำกัด (นนท์เบเกอรี่)",
+      "code": "นนทบุรี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท ไอคอนสยาม จำกัด",
+      "code": "กรุงเทพมหานคร",
+      "pos": "CI-SERVER",
+      "machine": "CI-100"
+    },
+    {
+      "name": "บริษัท แฮปปี้แลนด์ แอนิมัล เฮลธ์ จำกัด (โรงพยาบาลสัตว์แฮปปี้แลนด์)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "เพ็ทโตริ อาหารสัตว์",
+      "code": "จันทบุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ร้านข้าวแกงตำรับแม่ล้วน (ห้างหุ้นส่วนจำกัด ศิริ 2015)",
+      "code": "เพชรบุรี",
+      "pos": "Xpro",
+      "machine": "CI-5"
+    },
+    {
+      "name": "ร้านข้าวต้มนายเจือ",
+      "code": "นครสวรรค์",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ร้านข้าวต้มนายเจือ สาขาวัดโพธิ์",
+      "code": "นครสวรรค์",
+      "pos": "Xpro",
+      "machine": "CI-5"
+    },
+    {
+      "name": "ร้านข้าวต้มนายเจือ สาขาศาลายา",
+      "code": "นครปฐม",
+      "pos": "Xpro",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ร้านเจมาร์ท",
+      "code": "มหาสารคาม",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ร้านต้นกก",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Xpro",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ร้านบิ๊กสุ ราชวัตร",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ร้านบึงบุรีอะไหล่ สำนักงานใหญ่",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ร้านสำเพ็งมาบตาพุด",
+      "code": "ระยอง",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "โรงสีสุพลธัญญะกิจ",
+      "code": "ตาก",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ไข่หวานบ้านซูชิ ปทุมธานี (ซูชิ ทู โก)",
+      "code": "ปทุมธานี",
+      "pos": "Control Center",
+      "machine": "CI-5"
+    },
+    {
+      "name": "ไข่หวานบ้านซูชิ เมืองทอง (ข้ามนิ่ม ซูชิ)",
+      "code": "เพชรบุรี",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ไข่หวานบ้านซูชิ ศาลายา",
+      "code": "นครปฐม",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ง่วนฮงพาณิชย์",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Xpro",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บำรุงออยล์ (ESSO จ.เพชรบุรี)",
+      "code": "เพชรบุรี",
+      "pos": "Control Center",
+      "machine": "CI-50"
+    },
+    {
+      "name": "มนตรียนต์",
+      "code": "พระนครศรีอยุธยา",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "แม่ลาปลาเผา สำนักงานใหญ่",
+      "code": "สิงห์บุรี",
+      "pos": "Control Center",
+      "machine": "CI-5"
+    },
+    {
+      "name": "ส.เจริญอะไหล่ยนต์ กบินทร์",
+      "code": "ปราจีนบุรี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "สมนึกค้าส่ง",
+      "code": "สงขลา",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "แสงไทยพานิช(1992)",
+      "code": "สุพรรณบุรี",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "ไหมไทยวัสดุภัณฑ์",
+      "code": "ขอนแก่น",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "เอ๊ดดี้ ชูส์ เซ็นเตอร์ (Eddy Shoes สัมเพ็ง)",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Pos standard",
+      "machine": "CI-10"
+    },
+    {
+      "name": "อะตอมค้าส่ง สำนักงานใหญ่",
+      "code": "พระนครศรีอยุธยา",
+      "pos": "Control Center",
+      "machine": "CI-10"
+    },
+    {
+      "name": "บริษัท เจริญวัฒนา จำกัด",
+      "code": "กรุงเทพมหานคร",
+      "pos": "Xpro",
+      "machine": "CI-10X"
+    }
+  ],
+  "Resolvers": [
+    {
+      "name": "ทนงศักดิ์ ศรีสวัสดิ์"
+    },
+    {
+      "name": "กัมพล เพ็งหิรัญ"
+    },
+    {
+      "name": "สุวัฒน์ชัย อินทรสิทธิ์"
+    },
+    {
+      "name": "เศกสรรค์ พรหมจรรย์"
+    },
+    {
+      "name": "วสุพล พรหมราช"
+    },
+    {
+      "name": "ปภัศ ศรวัญวัชร"
+    },
+    {
+      "name": "อภิวัฒน์ มงคลรุ่งสุวรรณ"
+    },
+    {
+      "name": "ภาสกร วุฒิยิ่งยง"
+    },
+    {
+      "name": "วรัญญา จารัตน์"
+    },
+    {
+      "name": "วรวุฒิ กุลพรไพศาล"
+    }
+  ]
+}

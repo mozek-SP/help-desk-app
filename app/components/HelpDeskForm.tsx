@@ -224,9 +224,10 @@ export default function HelpDeskForm({ type, themeColor, masterData, resolvers =
                                                 </span>
                                                 <input
                                                     type="text"
-                                                    className="form-control border-0 bg-light py-3 ps-5 pe-3"
+                                                    className="form-control border-0 bg-light py-3 ps-5 pe-3 text-truncate"
                                                     placeholder={`ค้นหา${codeLabel} หรือ ชื่อ...`}
                                                     value={searchTerm}
+                                                    title={searchTerm} // Add title to show full text on hover
                                                     onChange={(e) => {
                                                         setSearchTerm(e.target.value)
                                                         setShowDropdown(true)
@@ -269,9 +270,20 @@ export default function HelpDeskForm({ type, themeColor, masterData, resolvers =
                                                                     key={`${item.code}-${index}`}
                                                                     className="p-3 border-bottom cursor-pointer hover-bg-light"
                                                                     onClick={() => {
-                                                                        setSearchTerm(item.code)
+                                                                        const isMK = type === 'MK';
+                                                                        // For MK: code = BranchID, name = BranchName
+                                                                        // For Customer: code = Province, name = CompanyName
+
+                                                                        // Set SearchTerm usually to the main identifier user searched for
+                                                                        // MK -> Branch Code
+                                                                        // Customer -> Company Name
+                                                                        setSearchTerm(isMK ? item.code : item.name)
+
                                                                         setFormData({
-                                                                            branchCode: item.code,
+                                                                            branchCode: item.code, // Keep storing Code/Province in branchCode for DB consistency if needed, or swap? 
+                                                                            // Actually, DB likely expects 'branchCode' and 'branchName'. 
+                                                                            // Let's stick to the current schema but swap DISPLAY.
+
                                                                             branchName: item.name || '-',
                                                                             posSystem: item.pos || '-',
                                                                             machine: item.machine || '-'
@@ -280,10 +292,16 @@ export default function HelpDeskForm({ type, themeColor, masterData, resolvers =
                                                                     }}
                                                                     style={{ cursor: 'pointer' }}
                                                                 >
-                                                                    <div className="d-flex justify-content-between">
-                                                                        <span className="fw-bold text-primary">{item.code}</span>
-                                                                        {type === 'MK' && <span className="text-muted small">สาขา {item.name}</span>}
-                                                                    </div>
+                                                                    {type === 'MK' ? (
+                                                                        <div className="d-flex justify-content-between w-100">
+                                                                            <span className="fw-bold text-primary">{item.code}</span>
+                                                                            <span className="text-muted small">สาขา {item.name}</span>
+                                                                        </div>
+                                                                    ) : (
+                                                                        <div className="d-flex flex-column w-100">
+                                                                            <span className="fw-bold text-primary text-wrap mb-1" style={{ lineHeight: '1.4' }}>{item.name}</span>
+                                                                        </div>
+                                                                    )}
                                                                 </div>
                                                             ))
                                                         ) : (
@@ -301,7 +319,7 @@ export default function HelpDeskForm({ type, themeColor, masterData, resolvers =
                                             type="text"
                                             className="form-control border-0 bg-secondary-subtle py-3 px-3"
                                             placeholder={`ข้อมูล${nameLabel}`}
-                                            value={formData.branchName}
+                                            value={type === 'MK' ? formData.branchName : formData.branchCode}
                                             readOnly
                                             onChange={(e) => setFormData({ ...formData, branchName: e.target.value })}
                                             style={{ borderRadius: '12px' }}
