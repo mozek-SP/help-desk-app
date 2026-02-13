@@ -24,20 +24,73 @@ const mapRecord = (record: any) => ({
 });
 
 export async function getAirtableData(tableName: string) {
+    const baseId = process.env.AIRTABLE_BASE_ID;
+    const pat = process.env.AIRTABLE_PAT;
+
+    // Construct URL (Handle spaces in table names)
+    const baseUrl = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
+
     try {
-        const base = getBase();
-        // Add timeout to prevent hanging
-        const timeoutPromise = new Promise((_, reject) =>
-            setTimeout(() => reject(new Error(`Airtable fetch timeout for ${tableName}`)), 15000)
-        );
+        console.log(`📡 Fetching ${tableName} via Native Fetch...`);
 
-        const fetchPromise = base(tableName).select().all();
+        // Initial Fetch
+        const res = await fetch(baseUrl, {
+            headers: { Authorization: `Bearer ${pat}` },
+            cache: 'no-store', // Disable Next.js caching to ensure fresh data
+            signal: AbortSignal.timeout(20000) // 20s timeout
+        });
 
-        const records: any = await Promise.race([fetchPromise, timeoutPromise]);
-        return records.map(mapRecord);
+        if (!res.ok) {
+            const errText = await res.text();
+            console.error(`❌ API Error ${tableName} [${res.status}]:`, errText);
+            if (res.status === 404) {
+                console.warn(`   -> Table "${tableName}" not found.`);
+                return [];
+            }
+            throw new Error(`Airtable API ${res.status}: ${errText}`);
+        }
+
+        const data = await res.json();
+        const records = data.records || [];
+
+        // Simple Pagination (Limit to 5 pages / ~500 records for safety)
+        let offset = data.offset;
+        let pageCount = 0;
+
+        while (offset && pageCount < 5) {
+            const nextUrl = `${baseUrl}?offset=${offset}`;
+            try {
+                const nextRes = await fetch(nextUrl, {
+                    headers: { Authorization: `Bearer ${pat}` },
+                    cache: 'no-store',
+                    signal: AbortSignal.timeout(10000)
+                });
+
+                if (nextRes.ok) {
+                    const nextData = await nextRes.json();
+                    if (nextData.records) records.push(...nextData.records);
+                    offset = nextData.offset;
+                    pageCount++;
+                } else {
+                    console.warn(`   -> Pagination failed for ${tableName} page ${pageCount + 2}`);
+                    break;
+                }
+            } catch (e) {
+                console.error(`   -> Pagination timeout/error for ${tableName}`);
+                break;
+            }
+        }
+
+        console.log(`✅ Success ${tableName}: ${records.length} records.`);
+
+        return records.map((record: any) => ({
+            id: record.id,
+            ...record.fields
+        }));
+
     } catch (error: any) {
         // Log warning but return empty array to allow app to use default data
-        console.warn(`Airtable fetch error for ${tableName}:`, error.message || error);
+        console.error(`🚨 Fatal Fetch Error for ${tableName}:`, error.message || error);
         return [];
     }
 }
