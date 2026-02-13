@@ -1,0 +1,48 @@
+{
+    "mk": [
+        {
+            "code": "B001",
+            "name": "MK เซ็นทรัล เวิลด์",
+            "pos": "NextGen POS v5.1",
+            "machine": "MCH-9901 (Main Server)"
+        },
+        {
+            "code": "B002",
+            "name": "MK สยามพารากอน",
+            "pos": "Legacy POS v4.8",
+            "machine": "MCH-4402 (Counter 1)"
+        },
+        {
+            "code": "B003",
+            "name": "MK ไอคอนสยาม",
+            "pos": "Cloud POS v1.2",
+            "machine": "MCH-7703 (Kiosk)"
+        },
+        {
+            "code": "B004",
+            "name": "MK เอ็มควอเทียร์",
+            "pos": "NextGen POS v5.1",
+            "machine": "MCH-1104 (Admin)"
+        }
+    ],
+    "customer": [
+        {
+            "code": "บริษัท เอไอบีซี จำกัด",
+            "name": "กรุงเทพมหานคร",
+            "pos": "Enterprise POS v2",
+            "machine": "SRV-001"
+        },
+        {
+            "code": "หจก. เมืองไทยการช่าง",
+            "name": "นนทบุรี",
+            "pos": "QuickPOS v3",
+            "machine": "SRV-002"
+        },
+        {
+            "code": "บจก. สยามฟู้ดส์",
+            "name": "ชลบุรี",
+            "pos": "Z-POS Cloud",
+            "machine": "SRV-003"
+        }
+    ]
+}
