@@ -296,7 +296,7 @@ function getRowIndex(id: string) {
 
 export async function addMKBranch(data: any) {
     const res = await addRowToSheet(SHEET_NAME_MK, data);
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 
@@ -305,33 +305,33 @@ export async function updateMKBranch(id: string, data: any) {
     // Note: This relies on the ID passed from UI being the _rowNumber
     const idx = parseInt(id) - 2;
     const res = await updateRowInSheet(SHEET_NAME_MK, idx, data);
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 
 export async function deleteMKBranch(id: string) {
     const idx = parseInt(id) - 2;
     const res = await deleteRowFromSheet(SHEET_NAME_MK, idx);
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 
 
 export async function addCustomer(data: any) {
     const res = await addRowToSheet(SHEET_NAME_CUSTOMER, data);
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 export async function updateCustomer(id: string, data: any) {
     const idx = parseInt(id) - 2;
     const res = await updateRowInSheet(SHEET_NAME_CUSTOMER, idx, data);
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 export async function deleteCustomer(id: string) {
     const idx = parseInt(id) - 2;
     const res = await deleteRowFromSheet(SHEET_NAME_CUSTOMER, idx);
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 
@@ -340,19 +340,19 @@ export async function addResolver(name: string) {
     // Resolvers might need an ID logic if we use them by ID. 
     // But currently we just use name.
     const res = await addRowToSheet(SHEET_NAME_RESOLVER, { id: `res-${Date.now()}`, name });
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 export async function updateResolver(id: string, name: string) {
     const idx = parseInt(id) - 2;
     const res = await updateRowInSheet(SHEET_NAME_RESOLVER, idx, { name });
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 export async function deleteResolver(id: string) {
     const idx = parseInt(id) - 2;
     const res = await deleteRowFromSheet(SHEET_NAME_RESOLVER, idx);
-    if (res.success) revalidateTag('master-data');
+    if (res.success) { /* revalidateTag('master-data'); */ }
     return res;
 }
 
