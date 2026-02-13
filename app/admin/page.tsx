@@ -392,8 +392,8 @@ export default function AdminPage() {
                                     <label className="form-label small fw-bold text-secondary">{tab === 'MK' ? 'รหัสสาขา' : 'ชื่อบริษัท'}</label>
                                     <input
                                         className="form-control bg-light border-0 py-2"
-                                        value={tab === 'MK' ? mkForm.code : customForm.code}
-                                        onChange={(e) => tab === 'MK' ? setMkForm({ ...mkForm, code: e.target.value }) : setCustomForm({ ...customForm, code: e.target.value })}
+                                        value={tab === 'MK' ? mkForm.code : customForm.name}
+                                        onChange={(e) => tab === 'MK' ? setMkForm({ ...mkForm, code: e.target.value }) : setCustomForm({ ...customForm, name: e.target.value })}
                                         placeholder={tab === 'MK' ? "เช่น B001" : "ชื่อบริษัท"}
                                     />
                                 </div>
@@ -401,8 +401,8 @@ export default function AdminPage() {
                                     <label className="form-label small fw-bold text-secondary">{tab === 'MK' ? 'ชื่อสาขา' : 'จังหวัด'}</label>
                                     <input
                                         className="form-control bg-light border-0 py-2"
-                                        value={tab === 'MK' ? mkForm.name : customForm.name}
-                                        onChange={(e) => tab === 'MK' ? setMkForm({ ...mkForm, name: e.target.value }) : setCustomForm({ ...customForm, name: e.target.value })}
+                                        value={tab === 'MK' ? mkForm.name : customForm.code}
+                                        onChange={(e) => tab === 'MK' ? setMkForm({ ...mkForm, name: e.target.value }) : setCustomForm({ ...customForm, code: e.target.value })}
                                         placeholder={tab === 'MK' ? "ชื่อสาขา" : "จังหวัด"}
                                     />
                                 </div>
@@ -516,8 +516,8 @@ export default function AdminPage() {
                                         data.mk.map((item: any) => (
                                             <tr key={item.code}>
                                                 <td className="px-4 py-3">
-                                                    <div className="fw-bold">{item.code}</div>
-                                                    <div className="small text-muted">{item.name}</div>
+                                                    <div className="fw-bold">{item.name}</div>
+                                                    <div className="small text-muted">{item.code}</div>
                                                 </td>
                                                 <td className="py-3 small">{item.pos}</td>
                                                 <td className="py-3 small">{item.machine}</td>
@@ -543,8 +543,8 @@ export default function AdminPage() {
                                         data.customer.map((item: any) => (
                                             <tr key={item.code}>
                                                 <td className="px-4 py-3">
-                                                    <div className="fw-bold">{item.code}</div>
-                                                    <div className="small text-muted">{item.name}</div>
+                                                    <div className="fw-bold">{item.name}</div>
+                                                    <div className="small text-muted">{item.code}</div>
                                                 </td>
                                                 <td className="py-3 small">{item.pos}</td>
                                                 <td className="py-3 small">{item.machine}</td>

@@ -49,11 +49,26 @@ const DEFAULT_SOLUTIONS = [
 
 import { MK_BRANCHES, CUSTOMERS, RESOLVERS } from '../lib/master-data';
 
-// --- Master Data Handling with Cache ---
+// --- Master Data Handling with In-Memory Cache (Robust Fix) ---
 
-// Internal fetch function (uncached)
-async function _fetchMasterDataFromSheets() {
-    console.log("Fetching Master Data from Google Sheets (Uncached)...");
+// Global Cache Variables (Server-Side Memory)
+// Note: On Vercel Serverless, this cache is per-instance and may be cleared on cold starts.
+// This is actually desirable behavior (automatic refresh on new instances).
+let _masterDataCache: any = null;
+let _lastFetchTime = 0;
+const CACHE_TTL_MS = 1000 * 60 * 60; // Cache for 60 minutes
+
+export async function fetchMasterData(forceRefresh: boolean = false) {
+    const now = Date.now();
+
+    // 1. Return Cache if available, fresh, and not forced
+    if (!forceRefresh && _masterDataCache && (now - _lastFetchTime < CACHE_TTL_MS)) {
+        console.log("Serving Master Data from In-Memory Cache.");
+        return withStaticDropdowns(_masterDataCache);
+    }
+
+    // 2. Fetch from Sheets
+    console.log("Fetching Master Data from Google Sheets (Fresh)...");
     try {
         const [mk, customer, resolvers] = await Promise.all([
             getRowsFromSheet(SHEET_NAME_MK),
@@ -61,41 +76,31 @@ async function _fetchMasterDataFromSheets() {
             getRowsFromSheet(SHEET_NAME_RESOLVER)
         ]);
 
-        return {
+        const data = {
             mk: mk || [],
             customer: customer || [],
             resolvers: resolvers || []
         };
+
+        // 3. Update Cache
+        _masterDataCache = data;
+        _lastFetchTime = now;
+
+        return withStaticDropdowns(data);
+
     } catch (error) {
         console.error("Error fetching master data from sheets:", error);
-        return { mk: [], customer: [], resolvers: [] };
+        // Fallback to cache if fetch fails? Or empty.
+        if (_masterDataCache) return withStaticDropdowns(_masterDataCache);
+        return withStaticDropdowns({ mk: [], customer: [], resolvers: [] });
     }
 }
 
-// Cached fetch function
-const getCachedMasterData = unstable_cache(
-    async () => _fetchMasterDataFromSheets(),
-    ['master-data-sheets'],
-    { tags: ['master-data'] }
-);
-
-export async function fetchMasterData() {
-    // 1. Try to get from Cache (which gets from Sheets)
-    const data = await getCachedMasterData();
-
-    // 2. If Sheets is empty, fallback to Hardcoded (Safety net)
-    if ((!data.mk || data.mk.length === 0) && (!data.customer || data.customer.length === 0)) {
-        console.log("Google Sheets empty. Falling back to Hardcoded Master Data.");
-        return fetchStaticMasterData();
-    }
-
-    console.log("Serving Master Data from Cache/Sheets.");
-
-    // Static Data for Dropdowns (Case Errors, Symptoms, etc. still static for now as requested)
+// Helper to attach static dropdowns
+function withStaticDropdowns(data: any) {
     const caseErrors = DEFAULT_CASE_ERRORS.map((d, i) => ({ id: `s-ce-${i}`, name: d }));
     const symptoms = DEFAULT_SYMPTOMS.map((d, i) => ({ id: `s-sym-${i}`, name: d }));
     const solutions = DEFAULT_SOLUTIONS.map((d, i) => ({ id: `s-sol-${i}`, name: d }));
-
     return {
         ...data,
         caseErrors,
@@ -104,19 +109,13 @@ export async function fetchMasterData() {
     };
 }
 
-// Helper to return static data directly (for fallback or initial seed)
+// Helper (unused but kept for ref)
 async function fetchStaticMasterData() {
-    const caseErrors = DEFAULT_CASE_ERRORS.map((d, i) => ({ id: `s-ce-${i}`, name: d }));
-    const symptoms = DEFAULT_SYMPTOMS.map((d, i) => ({ id: `s-sym-${i}`, name: d }));
-    const solutions = DEFAULT_SOLUTIONS.map((d, i) => ({ id: `s-sol-${i}`, name: d }));
-    return {
+    return withStaticDropdowns({
         mk: MK_BRANCHES,
         customer: CUSTOMERS,
         resolvers: RESOLVERS,
-        caseErrors,
-        symptoms,
-        solutions
-    };
+    });
 }
 
 // --- Sync Action (One-time use to populate Sheets) ---
@@ -128,14 +127,12 @@ export async function syncMasterDataToSheets() {
         await ensureSheetWithHeaders(SHEET_NAME_CUSTOMER, ['code', 'name', 'pos', 'machine']);
         await ensureSheetWithHeaders(SHEET_NAME_RESOLVER, ['id', 'name']);
 
-        // 2. Clear existing data (to avoid duplicates on re-sync)
+        // 2. Clear existing data
         await clearSheet(SHEET_NAME_MK);
         await clearSheet(SHEET_NAME_CUSTOMER);
         await clearSheet(SHEET_NAME_RESOLVER);
 
-        // 3. Add Hardcoded Data
-        // Re-add headers after clear? clearSheet implementation usually clears content.
-        // Let's re-ensure headers just in case.
+        // 3. Add Hardcoded Data (Re-ensure headers first as clear might wipe them)
         await ensureSheetWithHeaders(SHEET_NAME_MK, ['code', 'name', 'pos', 'machine']);
         await ensureSheetWithHeaders(SHEET_NAME_CUSTOMER, ['code', 'name', 'pos', 'machine']);
         await ensureSheetWithHeaders(SHEET_NAME_RESOLVER, ['id', 'name']);
@@ -146,10 +143,8 @@ export async function syncMasterDataToSheets() {
 
         console.log("Sync Complete.");
 
-        // Invalidate Cache so next fetch gets new data
-        // revalidateTag('master-data'); 
-        // FIXME: Vercel Build Error: Expected 2 arguments, but got 1. 
-        // We will rely on revalidatePath or cache timeout for now.
+        // Invalidate Cache
+        _masterDataCache = null;
 
         return { success: true };
     } catch (error: any) {
@@ -296,63 +291,59 @@ function getRowIndex(id: string) {
 
 export async function addMKBranch(data: any) {
     const res = await addRowToSheet(SHEET_NAME_MK, data);
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 
 export async function updateMKBranch(id: string, data: any) {
-    // Convert id to index
-    // Note: This relies on the ID passed from UI being the _rowNumber
     const idx = parseInt(id) - 2;
     const res = await updateRowInSheet(SHEET_NAME_MK, idx, data);
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 
 export async function deleteMKBranch(id: string) {
     const idx = parseInt(id) - 2;
     const res = await deleteRowFromSheet(SHEET_NAME_MK, idx);
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 
 
 export async function addCustomer(data: any) {
     const res = await addRowToSheet(SHEET_NAME_CUSTOMER, data);
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 export async function updateCustomer(id: string, data: any) {
     const idx = parseInt(id) - 2;
     const res = await updateRowInSheet(SHEET_NAME_CUSTOMER, idx, data);
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 export async function deleteCustomer(id: string) {
     const idx = parseInt(id) - 2;
     const res = await deleteRowFromSheet(SHEET_NAME_CUSTOMER, idx);
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 
 
 export async function addResolver(name: string) {
-    // Resolvers might need an ID logic if we use them by ID. 
-    // But currently we just use name.
     const res = await addRowToSheet(SHEET_NAME_RESOLVER, { id: `res-${Date.now()}`, name });
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 export async function updateResolver(id: string, name: string) {
     const idx = parseInt(id) - 2;
     const res = await updateRowInSheet(SHEET_NAME_RESOLVER, idx, { name });
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 export async function deleteResolver(id: string) {
     const idx = parseInt(id) - 2;
     const res = await deleteRowFromSheet(SHEET_NAME_RESOLVER, idx);
-    if (res.success) { /* revalidateTag('master-data'); */ }
+    if (res.success) _masterDataCache = null; // Invalidate Cache
     return res;
 }
 
